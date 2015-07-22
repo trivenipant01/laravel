@@ -1,27 +1,82 @@
-## Laravel PHP Framework
+Laravel5 simple rest api.
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+Readme
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+1)Download complete laravel setup to your system or server.
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+2)open .env file in root
+change database details.
+DB_HOST=localhost
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=
 
-## Official Documentation
+3)Mail is not working currently as I have developed in localhost.
+  laravel\config\mail.php
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+set 'pretend' => true to  'pretend' => false
 
-## Contributing
+4)find directory sqlbackup and take sql backup file from there and import to your database.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+5)Change email and name in app/config/constant.php
 
-## Security Vulnerabilities
+=======================================================================================================================================
+api urls:
+http://localhost/laravel/public/ is baseurl change it according to you:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+showall posts
+Method GET
+http://localhost/laravel/public/api/posts
 
-### License
+Create Post
+http://localhost/laravel/public/api/posts
+Method:POST
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+Show Particular Post
+Method GET
+http://localhost/laravel/public/api/posts/{id}
+
+Update a Post
+Method PUT
+http://localhost/laravel/public/api/posts/{id}
+
+Delete A Post
+Method DELETE
+http://localhost/laravel/public/api/posts/{id}
+=======================================================================================================================================
+showall posts
+Method GET
+http://localhost/laravel/public/api/tags
+
+Create Tag
+http://localhost/laravel/public/api/tags
+Method:POST
+
+Update Tag
+Method PUT
+http://localhost/laravel/public/api/tags/{id}
+
+Show Particular Tag
+Method GET
+http://localhost/laravel/public/api/tags/{id}
+
+Update a Tag
+Method PUT
+http://localhost/laravel/public/api/tags/{id}
+
+Delete A Tag
+http://localhost/laravel/public/api/tags/{id}
+
+Example Curl request for Posts and Tags will be on testapi directory:
+
+postAll.php    ======================= Get all Posts
+postCreate.php ======================= Create Post
+postUpdate.php ======================= Update Post
+postSingle.php ======================= Show a particular post
+postDelete.php ======================= Delete post
+
+tagAll.php     ======================= Get all tags
+tagCreate.php  ======================= Create tags
+tagUpdate.php  ======================= update Tag
+tagSingle.php  ======================= Show a particular tag
+tagDelete.php  ======================= Delete a tag
