@@ -43,6 +43,7 @@ http://localhost/laravel/public/api/posts/{id}
 Delete A Post
 Method DELETE
 http://localhost/laravel/public/api/posts/{id}
+
 =======================================================================================================================================
 showall posts
 Method GET
@@ -70,13 +71,21 @@ http://localhost/laravel/public/api/tags/{id}
 Example Curl request for Posts and Tags will be on testapi directory:
 
 postAll.php    ======================= Get all Posts
+
 postCreate.php ======================= Create Post
+
 postUpdate.php ======================= Update Post
+
 postSingle.php ======================= Show a particular post
+
 postDelete.php ======================= Delete post
 
 tagAll.php     ======================= Get all tags
+
 tagCreate.php  ======================= Create tags
+
 tagUpdate.php  ======================= update Tag
+
 tagSingle.php  ======================= Show a particular tag
+
 tagDelete.php  ======================= Delete a tag
