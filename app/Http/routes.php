@@ -14,12 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/test', function () {
-    return view('welcome1');
-});
-Route::get('user/{id}', 'UserController@showProfile');
+//Route::get('post/tag/{tag}', 'BlogController@search');
+//Route::get('photos/popular', 'PostController@showbytag');
 //Route::resource('posts', 'PostController');
+//Route::get('api/posts/showPostByTag/{tag}', 'PostController@showPostByTag');
 Route::group(array('prefix' => 'api'), function() {
+Route::get( 'showbytag/{tag}', array('as' => 'api.posts.showbytag', 'uses' => 'PostController@showbytag'));
+Route::get( 'countbytag/{tag}', array('as' => 'api.posts.countbytag', 'uses' => 'PostController@countbytag'));
 Route::resource('posts', 'PostController');
 Route::resource('tags', 'TagController');  
 });

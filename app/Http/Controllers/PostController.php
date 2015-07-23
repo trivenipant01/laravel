@@ -25,6 +25,32 @@ class PostController extends Controller
 	 public function __construct() {
         $this->beforeFilter('csrf', ['on' => '']);
      }
+   function showbytag($tag){
+      $tags = array($tag);
+		$posts = Post::with('tags')->whereHas('tags', function($q) use ($tags)
+		{
+			$q->whereIn('name', $tags);
+		})->get();
+		$statusCode=200;
+		return Response::json($posts, $statusCode);
+		
+   }
+   function countbytag($tag){
+      $tags = array($tag);
+		$posts = Post::whereHas('tags', function($q) use ($tags)
+		{
+			$q->whereIn('name', $tags);
+		})->get();
+		if($posts){
+		   $count=$posts->count();
+		}else{
+		   $count=0;
+		}
+		
+		$statusCode=200;
+		return Response::json(array('count'=>$count), $statusCode);
+		
+   }
     public function index()
     {
         try{
@@ -117,7 +143,7 @@ class PostController extends Controller
     {
 	//$id=1;
       $page = Post::with('tags')->where('id', $id)->get();
-
+//echo 'qqqqqqqq1';
         return Response::json(array(
             'status' => 'success',
             'pages' => $page->toArray()),
@@ -167,7 +193,7 @@ class PostController extends Controller
         );
    
     }
-
+   
     /**
      * Remove the specified resource from storage.
      *
